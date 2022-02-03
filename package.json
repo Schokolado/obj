@@ -1,6 +1,6 @@
 {
   "name": "@hippie/obj",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1",
   "description": "An OBJ model file parser for WebGL",
   "main": "index.js",
   "scripts": {
