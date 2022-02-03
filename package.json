@@ -1,0 +1,41 @@
+{
+  "name": "@hippie/obj",
+  "version": "0.0.1-alpha.1",
+  "description": "An OBJ model file parser for WebGL",
+  "main": "index.js",
+  "scripts": {
+    "pb": "npm publish --access public",
+    "alpha": "npm run release -- --prerelease alpha",
+    "release": "standard-version"
+  },
+  "keywords": [
+    "obj",
+    "wavefront",
+    "model",
+    "3d",
+    "webgl"
+  ],
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "author": "flfwzgl",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "husky": "4.3.6",
+    "jest": "^27.4.7",
+    "standard-version": "^9.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
