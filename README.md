@@ -4,7 +4,7 @@
 
 # obj
 
-**obj** is a parser for the ".obj" model files defined by Wavefront Technologies. It parse obj files and return a list contained all the vertices, UVs and normals.
+**obj** is a parser for the "[.obj](http://paulbourke.net/dataformats/obj/)" model files defined by Wavefront Technologies. It parses only the polygons in obj files and return a list contained all the vertices, UVs and normals.
 
 For a group containing multiple models, the parser does not restore the tree structure of the models since all vertices are converted to world coordinates, but returns a list of all models
 
