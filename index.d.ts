@@ -3,7 +3,7 @@ export interface IObj {
   uvs?: Float32Array
   normals?: Float32Array
   indices?: Uint8Array | Uint16Array | Uint32Array
-  soft?: boolean
+  smoothData?: { faceIndex: number; smooth: boolean }[]
 }
 
 export interface IOpt {

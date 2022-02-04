@@ -1,8 +1,12 @@
+<p align="center">
+  <img width="400" src="./assets/teapot.jpg">
+</p>
+
 # obj
 
 **obj** is a parser for the ".obj" model files defined by Wavefront Technologies. It parse obj files and return a list contained all the vertices, UVs and normals.
 
-For an obj file and grouping containing multiple models, the parser does not restore the tree structure of the models since all vertices are converted to world coordinates, but returns a list of all models
+For a group containing multiple models, the parser does not restore the tree structure of the models since all vertices are converted to world coordinates, but returns a list of all models
 
 ## Install
 
@@ -57,7 +61,7 @@ output: ⏬
 {
   indices: Uint8Array(6) [0, 1, 2, 0, 2, 3],
   normals: Float32Array(12) [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0],
-  soft: false,
+  smoothData: [{ faceIndex: 0, smooth: false }],
   uvs: Float32Array(8) [0, 0, 1, 0, 1, 1, 0, 1],
   vertices: Float32Array(12) [-1, -0, 1, 1, -0, 1, 1, 0, -1, -1, 0, -1],
 }

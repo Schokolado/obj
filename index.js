@@ -34,9 +34,10 @@ export default function parse(str, opt = {}) {
   let uvs = []
   let normals = []
   let indices = []
+  let smoothData = []
+  let faceIndex = 0
 
   let lastCmd = ''
-  let soft = false
   // let isNewObj = false
 
   const ret = []
@@ -60,7 +61,7 @@ export default function parse(str, opt = {}) {
             uvs: new Float32Array(uvs),
             normals: new Float32Array(normals),
             indices: getIndicesArray(indices),
-            soft,
+            smoothData,
           })
 
           num = 0
@@ -68,7 +69,8 @@ export default function parse(str, opt = {}) {
           uvs = []
           normals = []
           indices = []
-          soft = false
+          smoothData = []
+          faceIndex = 0
         }
 
         lastCmd = 'v'
@@ -130,6 +132,7 @@ export default function parse(str, opt = {}) {
           }
 
           indices.push(a, b, c)
+          faceIndex++
 
           if (key4) {
             let d = keyMap[key4]
@@ -142,6 +145,7 @@ export default function parse(str, opt = {}) {
             }
 
             indices.push(a, c, d)
+            faceIndex++
           }
 
           lastCmd = 'f'
@@ -153,7 +157,10 @@ export default function parse(str, opt = {}) {
       case 's ':
         if ((res = line.match(rSoft))) {
           const [_, v] = res
-          v === '1' && (soft = true)
+          smoothData.push({
+            faceIndex,
+            smooth: v !== 'off',
+          })
         }
         continue
 
@@ -170,7 +177,7 @@ export default function parse(str, opt = {}) {
     uvs: new Float32Array(uvs),
     normals: new Float32Array(normals),
     indices: getIndicesArray(indices),
-    soft,
+    smoothData,
   })
 
   return ret
